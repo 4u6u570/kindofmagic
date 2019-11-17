@@ -3119,3 +3119,16 @@ h1 a.ts-underline {
         width: 25rem;
     }
 }
+
+@media only screen and (min-width: 992px){
+
+#ts-footer .footer-social {
+    list-style: none;
+    padding: 0;
+    margin: 0 -10px;
+    text-align: right;
+}
+}
+#ts-footer .footer-social li {
+    display: inline-block;
+}
