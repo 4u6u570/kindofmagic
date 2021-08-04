@@ -3139,3 +3139,7 @@ h1 a.ts-underline {
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
   }
+
+  .text-gray {
+      color:gray;
+  }
