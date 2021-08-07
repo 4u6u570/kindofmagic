@@ -12,7 +12,28 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
     <title>Pasto</title>
-
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("user_1d3Z64YNEWhN4MOedsHTf");
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById('form-contact').addEventListener('submit', function (event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('contact_service', 'contact_form', this)
+                    .then(function () {
+                        console.log('SUCCESS!');
+                    }, function (error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
 </head>
 <body class="has-loading-screen">
 
@@ -178,8 +199,9 @@
                             <div class="ts-title mb-5">
                                 <h2>Write Us</h2>
                             </div>
-                            <form id="form-contact" method="post" class="clearfix ts-form ts-form-email" data-php-path="assets/php/email.php">
+                            <form id="form-contact" method="post" class="clearfix ts-form ts-form-email">
                                 <!--Row-->
+                                <input type="hidden" name="contact_number">
                                 <div class="row">
 
                                     <!--Nombre-->
